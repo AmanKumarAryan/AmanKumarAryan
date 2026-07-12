@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 
-import portrait from "@/assets/portrait.jpg";
+import portrait from "public/assets/portrait.jpg";
 import { Eyebrow, fadeUp, Section } from "../@core";
 
 

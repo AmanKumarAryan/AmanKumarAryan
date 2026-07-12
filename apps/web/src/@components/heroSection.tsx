@@ -1,11 +1,9 @@
+'use client'
 
 import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
 import { Section } from "../@core/Section";
 import { fadeUp } from "../@core/fadeUp";
-
-
-
 
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -17,7 +15,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
     );
 }
 
-export default function Hero() {
+export function Hero() {
     return (
         <Section id="home" className="pt-40 pb-32 md:pt-48 md:pb-40">
             <motion.div {...fadeUp}>

@@ -1,3 +1,5 @@
+'use client'
+
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
 import {
     SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiPython,

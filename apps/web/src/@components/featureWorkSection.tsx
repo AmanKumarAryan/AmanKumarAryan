@@ -1,8 +1,8 @@
 import { Eyebrow, fadeUp, Section } from "../@core";
-import project1 from "@/assets/project1.jpg";
-import project2 from "@/assets/project2.jpg";
-import project3 from "@/assets/project3.jpg";
-import project4 from "@/assets/project4.jpg";
+import project1 from "public/assets/project1.jpg";
+import project2 from "public/assets/project2.jpg";
+import project3 from "public/assets/project3.jpg";
+import project4 from "public/assets/project4.jpg";
 import { ArrowUpRight, Github } from "lucide-react";
 import {motion} from 'motion/react';
 

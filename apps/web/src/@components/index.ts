@@ -1,0 +1,7 @@
+export * from './aboutUsSection'
+export * from './featureBlogSection'
+export * from './featureWorkSection'
+export * from './footer'
+export * from './heroSection'
+export * from './introSection'
+export * from './techUsedSection'

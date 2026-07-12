@@ -1,8 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import { Eyebrow, fadeUp, Section } from "../@core";
-import blog1 from "@/assets/blog1.jpg";
-import blog2 from "@/assets/blog2.jpg";
-import blog3 from "@/assets/blog3.jpg";
+import blog1 from 'public/assets/blog1.jpg'
+import blog2 from "public/assets/blog2.jpg";
+import blog3 from "public/assets/blog3.jpg";
 import { motion } from 'motion/react'
 
 function Blogs() {
