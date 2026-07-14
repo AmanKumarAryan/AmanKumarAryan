@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from v1.config import connectDB
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from v1.router import blogRouter, experienceRouter, projectRouter
 
 app = FastAPI()
 
@@ -19,7 +20,6 @@ app.add_middleware(
 async def startup_event():
     await connectDB()
 
-
 @app.get("/")
 def health():
     return {"message":"This is a backend service for Kartik portfolio"}
@@ -28,3 +28,7 @@ def health():
 @app.head("/")
 async def health_check():
     return JSONResponse(content={"status": "ok"})
+
+app.include_router(blogRouter.router)
+app.include_router(experienceRouter.router)
+app.include_router(projectRouter.router)

@@ -2,7 +2,7 @@ from .baseModel import Base
 from typing import Optional
 from datetime import date
 
-class ExperienceBase(Base):
+class ExperienceModel(Base):
     company: str
     position: str
     employmentType: str

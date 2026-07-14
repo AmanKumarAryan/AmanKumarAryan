@@ -2,8 +2,7 @@ from .baseModel import Base
 from typing import Optional
 from datetime import datetime
 
-class BlogBase(Base):
-    shortDescription: str
+class BlogModel(Base):
     thumbnailImage: str
     slug: str
     content: str
