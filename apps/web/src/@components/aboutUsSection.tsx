@@ -1,6 +1,4 @@
 import { motion } from "motion/react";
-
-import portrait from "public/assets/portrait.jpg";
 import { Eyebrow, fadeUp, Section } from "../@core";
 
 
@@ -41,7 +39,7 @@ export function About() {
                         />
                         <div className="relative overflow-hidden rounded-[2rem] aspect-[4/5] bg-muted ring-1 ring-black/5">
                             <img
-                                src={portrait.src}
+                                src={'public/assets/portrait.jpg'}
                                 alt="Kartik Sharma"
                                 className="w-full h-full object-cover"
                                 width={1024}
