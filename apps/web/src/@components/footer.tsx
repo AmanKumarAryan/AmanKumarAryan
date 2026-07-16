@@ -1,7 +1,4 @@
 import {
-    Github,
-    Linkedin,
-    Twitter,
     Mail,
     ArrowUpRight,
     Download,
@@ -13,9 +10,9 @@ import { motion } from 'motion/react'
 export function Footer() {
     const links = [
         { icon: Mail, label: "kartik@example.com", href: "mailto:kartik@example.com" },
-        { icon: Linkedin, label: "LinkedIn", href: "#" },
-        { icon: Github, label: "GitHub", href: "#" },
-        { icon: Twitter, label: "Twitter / X", href: "#" },
+        { icon: Mail, label: "LinkedIn", href: "#" },
+        { icon: Mail, label: "GitHub", href: "#" },
+        { icon: Mail, label: "Twitter / X", href: "#" },
     ];
     return (
         <>
@@ -64,11 +61,6 @@ export function Footer() {
                             Thanks for scrolling all the way down. If you got here, we should probably talk.
                         </p>
                         <div className="flex gap-5 md:justify-center">
-                            {[Github, Linkedin, Twitter, Mail].map((I, i) => (
-                                <a key={i} href="#" className="w-10 h-10 rounded-full ring-1 ring-black/10 flex items-center justify-center hover:ring-accent hover:text-accent transition">
-                                    <I className="w-4 h-4" />
-                                </a>
-                            ))}
                         </div>
                         <div className="md:text-right text-sm text-muted-foreground">
                             © {new Date().getFullYear()} Kartik Sharma <span className="text-accent">·</span> Crafted with intent

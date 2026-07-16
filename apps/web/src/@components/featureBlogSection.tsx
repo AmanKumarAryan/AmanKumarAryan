@@ -1,15 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
 import { Eyebrow, fadeUp, Section } from "../@core";
-import blog1 from 'public/assets/blog1.jpg'
-import blog2 from "public/assets/blog2.jpg";
-import blog3 from "public/assets/blog3.jpg";
 import { motion } from 'motion/react'
 
-function Blogs() {
+export function Blogs() {
     const posts = [
-        { img: blog1, title: "The quiet art of interface design", desc: "Why restraint beats decoration in modern product design.", date: "Jul 04, 2026", big: true },
-        { img: blog2, title: "Shipping less, faster", desc: "A workflow for building small and often.", date: "Jun 22, 2026" },
-        { img: blog3, title: "On writing readable code", desc: "Code is a letter to whoever reads it next.", date: "Jun 08, 2026" },
+        {  title: "The quiet art of interface design", desc: "Why restraint beats decoration in modern product design.", date: "Jul 04, 2026", big: true },
+        {  title: "Shipping less, faster", desc: "A workflow for building small and often.", date: "Jun 22, 2026" },
+        {  title: "On writing readable code", desc: "Code is a letter to whoever reads it next.", date: "Jun 08, 2026" },
     ];
     return (
         <Section id="blogs" className="py-28 md:py-40">
@@ -36,7 +33,6 @@ function Blogs() {
                         className={`group relative overflow-hidden rounded-3xl ring-1 ring-black/[0.06] hover:ring-black/20 bg-card transition-all ${p.big ? "lg:col-span-2 lg:row-span-1" : ""}`}
                     >
                         <div className={`overflow-hidden ${p.big ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
-                            <img src={p.img.src} alt={p.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-[900ms] group-hover:scale-105" />
                         </div>
                         <div className="p-6 md:p-8">
                             <div className="text-xs text-muted-foreground">{p.date}</div>

@@ -47,7 +47,7 @@ const TECHS: Tech[] = [
     { name: "JavaScript", desc: "Language of the web.", projects: ["All"], years: "5y", Icon: SiJavascript, color: "#F7DF1E" },
 ];
 
-function Technologies() {
+export function Technologies() {
     const [hover, setHover] = useState<number | null>(null);
     return (
         <Section id="technologies" className="py-32 md:py-48">

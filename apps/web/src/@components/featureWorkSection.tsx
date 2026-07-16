@@ -1,17 +1,13 @@
 import { Eyebrow, fadeUp, Section } from "../@core";
-import project1 from "public/assets/project1.jpg";
-import project2 from "public/assets/project2.jpg";
-import project3 from "public/assets/project3.jpg";
-import project4 from "public/assets/project4.jpg";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import {motion} from 'motion/react';
 
-function Projects() {
+export function Projects() {
   const items = [
-    { img: project1, name: "Halogen Analytics", desc: "A minimalist analytics dashboard for indie makers, focused on the numbers that actually matter.", stack: ["Next.js", "Postgres", "Prisma"] },
-    { img: project2, name: "Fjord Mobile", desc: "A calm daily journaling app for iOS and Android with encrypted sync.", stack: ["React Native", "Firebase"] },
-    { img: project3, name: "Atlas Agents", desc: "A LangGraph-based multi-agent system for research and writing workflows.", stack: ["Python", "LangGraph", "FastAPI"] },
-    { img: project4, name: "Portal Commerce", desc: "A headless storefront focused on typography, whitespace and speed.", stack: ["Next.js", "Tailwind", "Stripe"] },
+    {  name: "Halogen Analytics", desc: "A minimalist analytics dashboard for indie makers, focused on the numbers that actually matter.", stack: ["Next.js", "Postgres", "Prisma"] },
+    {  name: "Fjord Mobile", desc: "A calm daily journaling app for iOS and Android with encrypted sync.", stack: ["React Native", "Firebase"] },
+    {  name: "Atlas Agents", desc: "A LangGraph-based multi-agent system for research and writing workflows.", stack: ["Python", "LangGraph", "FastAPI"] },
+    { name: "Portal Commerce", desc: "A headless storefront focused on typography, whitespace and speed.", stack: ["Next.js", "Tailwind", "Stripe"] },
   ];
   return (
     <Section id="projects" className="py-28 md:py-40">
@@ -32,11 +28,10 @@ function Projects() {
           >
             <div className="md:col-span-7 group relative overflow-hidden rounded-3xl bg-muted ring-1 ring-black/[0.06]">
               <div className="aspect-[16/10] overflow-hidden">
-                <img src={p.img.src} alt={p.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]" />
               </div>
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 flex gap-3">
-                  <a href="#" className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium inline-flex items-center gap-1.5"><Github className="w-4 h-4" /> Code</a>
+                  <a href="#" className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium inline-flex items-center gap-1.5"><ArrowUpRight className="w-4 h-4" /> Code</a>
                   <a href="#" className="px-4 py-2 rounded-full bg-accent text-white text-sm font-medium inline-flex items-center gap-1.5">Live <ArrowUpRight className="w-4 h-4" /></a>
                 </div>
               </div>
@@ -51,7 +46,7 @@ function Projects() {
                 ))}
               </div>
               <div className="mt-8 flex gap-3">
-                <a href="#" className="inline-flex items-center gap-1.5 text-sm font-medium hover:text-accent"><Github className="w-4 h-4" /> GitHub</a>
+                <a href="#" className="inline-flex items-center gap-1.5 text-sm font-medium hover:text-accent"><ArrowUpRight className="w-4 h-4" /> GitHub</a>
                 <span className="text-muted-foreground/40">·</span>
                 <a href="#" className="inline-flex items-center gap-1.5 text-sm font-medium hover:text-accent">Live demo <ArrowUpRight className="w-4 h-4" /></a>
               </div>
