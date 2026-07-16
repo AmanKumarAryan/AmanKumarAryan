@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends, UploadFile, File
 from v1.service import blogService
-from v1.schema import CreateBlogSchema
+from v1.schema import CreateBlogSchema, blogUpdateSchema
 
 router = APIRouter(prefix="/blog", tags=["blog"])
 
@@ -23,7 +23,7 @@ async def create_blog(data: CreateBlogSchema = Depends(CreateBlogSchema.as_form)
 
 
 @router.put("/{blog_id}")
-async def update_blog(blog_id: str,data: CreateBlogSchema = Depends(CreateBlogSchema.as_form),
+async def update_blog(blog_id: str,data: blogUpdateSchema = Depends(CreateBlogSchema.as_form),
                       thumbnailImage: UploadFile = File(...)):
     return blogService.update(blog_id,data,thumbnailImage)
 

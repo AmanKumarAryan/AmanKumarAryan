@@ -3,12 +3,12 @@ from v1.model import blogModel
 from v1.config import getDB
 from v1.util import log, response
 from fastapi import HTTPException, UploadFile
-from v1.schema import CreateBlogSchema, blogUpdateSchema
+from v1.schema import CreateBlogSchema
 import re
 from v1.config import imagekit
 from v1.util import getCurrentDateTime
 
-class blogService:
+class experienceService:
 
     def __init__(self):
         self.db = getDB()["BlogModel"]
@@ -34,7 +34,7 @@ class blogService:
             file_bytes = await thumbnailImage.read()
             imageResponse = imagekit.upload_file(
                             file=file_bytes,
-                            file_name=thumbnailImage.filename,
+                            file_name=file.filename,
                             options={
                                 "folder": "/blogs"
                             }
@@ -98,7 +98,7 @@ class blogService:
                 detail="Something went wrong, please try again"
             )
         
-    async def update(self, blog_id: str, data: blogUpdateSchema, thumbnailImage: UploadFile = None):
+    async def update(self, blog_id: str, data: CreateBlogSchema, thumbnailImage: UploadFile = None):
         try:
             existingBlog = await self.db.find_one({"_id": blog_id})
 

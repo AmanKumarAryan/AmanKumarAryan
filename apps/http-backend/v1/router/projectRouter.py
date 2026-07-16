@@ -1,28 +1,40 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, UploadFile, File
+from v1.service import projectService
+from v1.schema import CreateProjectSchema, UpdateProjectSchema
+from typing import List
 
 router = APIRouter(prefix="/project", tags=["project"])
+
+service = projectService()
 
 
 @router.get("/")
 async def get_all_projects():
-    return {"message": "Get all projects"}
+    return await service.getAll()
 
 
 @router.get("/{project_id}")
 async def get_project(project_id: str):
-    return {"message": f"Get project {project_id}"}
+    return await service.getOne(project_id)
 
 
 @router.post("/")
-async def create_project():
-    return {"message": "Create project"}
+async def create_project(data: UpdateProjectSchema = Depends(UpdateProjectSchema.as_form),
+                          thumbnailImage: UploadFile = File(...),
+                          images: List[UploadFile] = File(...)
+                          ):
+    return await service.create(data, thumbnailImage, images)
 
 
 @router.put("/{project_id}")
-async def update_project(project_id: str):
-    return {"message": f"Update project {project_id}"}
+async def update_project(project_id: str,
+                          data: UpdateProjectSchema = Depends(UpdateProjectSchema.as_form),
+                          thumbnailImage: UploadFile = File(None),
+                          images: List[UploadFile] = File(None)
+                          ):
+    return await service.update(project_id, data, thumbnailImage, images)
 
 
 @router.delete("/{project_id}")
 async def delete_project(project_id: str):
-    return {"message": f"Delete project {project_id}"}
+    return await service.delete(project_id)

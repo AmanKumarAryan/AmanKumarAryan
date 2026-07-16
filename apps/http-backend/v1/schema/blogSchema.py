@@ -41,3 +41,6 @@ class CreateBlogSchema(BaseModel):
             isActive=isActive,
             tags=tags,
         )
+    
+class blogUpdateSchema(CreateBlogSchema):
+    pass
