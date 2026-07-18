@@ -9,9 +9,9 @@ from v1.config import imagekit
 from v1.util import getCurrentDateTime
 
 class blogService:
-
-    def __init__(self):
-        self.db = getDB()["BlogModel"]
+    @property
+    async def collection(self):
+        return getDB()["BlogModel"]
 
     async def create(self, data: CreateBlogSchema,thumbnailImage: UploadFile):
         try:
@@ -21,7 +21,7 @@ class blogService:
 
             slug = "-".join(words[:4])
 
-            existingBlog = await self.db.find_one({"name":slug})
+            existingBlog = await self.collection.find_one({"name":slug})
 
             if existingBlog is not None:
                 log.info("blog which slug {slug} already exist")
@@ -53,7 +53,7 @@ class blogService:
                 isActive=data.isActive,
             )
 
-            await self.db.create_one(newBlog.dict())
+            await self.collection.create_one(newBlog.dict())
             log.info("new blog create")
             return response(code=201, message="Blog added successfull")
 
@@ -66,7 +66,7 @@ class blogService:
 
     async def getAll(self):
         try:
-            blogs = await self.db.find_all({})
+            blogs = await self.collection.find_all({})
             log.info("fetched all blogs")
             return response(code=200, message="Blogs fetched successfully", data=blogs)
 
@@ -79,7 +79,7 @@ class blogService:
         
     async def getOne(self, blog_id: str):
         try:
-            blog = await self.db.find_one({"_id": blog_id})
+            blog = await self.collection.find_one({"_id": blog_id})
 
             if blog is None:
                 log.info(f"blog with id {blog_id} not found")
@@ -100,7 +100,7 @@ class blogService:
         
     async def update(self, blog_id: str, data: blogUpdateSchema, thumbnailImage: UploadFile = None):
         try:
-            existingBlog = await self.db.find_one({"_id": blog_id})
+            existingBlog = await self.collection.find_one({"_id": blog_id})
 
             if existingBlog is None:
                 log.info(f"blog with id {blog_id} not found")
@@ -132,7 +132,7 @@ class blogService:
                 )
                 updateData["thumbnailImage"] = imageResponse["url"] if imageResponse["url"] else None
 
-            await self.db.update_one({"_id": blog_id}, {"$set": updateData})
+            await self.collection.update_one({"_id": blog_id}, {"$set": updateData})
             log.info(f"blog {blog_id} updated")
             return response(code=200, message="Blog updated successfully")
 
@@ -145,7 +145,7 @@ class blogService:
         
     async def delete(self, blog_id: str):
         try:
-            existingBlog = await self.db.find_one({"_id": blog_id})
+            existingBlog = await self.collection.find_one({"_id": blog_id})
 
             if existingBlog is None:
                 log.info(f"blog with id {blog_id} not found")
@@ -154,7 +154,7 @@ class blogService:
                     detail="Blog not found"
                 )
 
-            await self.db.delete_one({"_id": blog_id})
+            await self.collection.delete_one({"_id": blog_id})
             log.info(f"blog {blog_id} deleted")
             return response(code=200, message="Blog deleted successfully")
 

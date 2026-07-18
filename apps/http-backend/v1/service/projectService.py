@@ -1,18 +1,16 @@
-from datetime import datetime
 from v1.model import ProjectModel
 from v1.config import getDB
 from v1.util import log, response
 from fastapi import HTTPException, UploadFile
 from v1.schema import CreateProjectSchema, UpdateProjectSchema
-import re
 from v1.config import imagekit
 from v1.util import getCurrentDateTime
 from typing import List
 
 class projectService:
-
-    def __init__(self):
-        self.db = getDB()["ProjectModel"]
+    @property
+    async def collection(self):
+        return getDB()["ProjectModel"]
 
     async def create(self, data: CreateProjectSchema,thumbnailImage: UploadFile, images: List[UploadFile]):
         try:
@@ -54,7 +52,7 @@ class projectService:
                 isActive=data.isActive,
             )
 
-            await self.db.create_one(newProject.dict())
+            await self.collection.create_one(newProject.dict())
             log.info("new project created")
             return response(code=201, message="Project added successfull")
 
@@ -67,7 +65,7 @@ class projectService:
 
     async def getAll(self):
         try:
-            projects = await self.db.find_all({})
+            projects = await self.collection.find_all({})
             log.info("fetched all projects")
             return response(code=200, message="Projects fetched successfully", data=projects)
 
@@ -80,7 +78,7 @@ class projectService:
 
     async def getOne(self, project_id: str):
         try:
-            project = await self.db.find_one({"_id": project_id})
+            project = await self.collection.find_one({"_id": project_id})
 
             if project is None:
                 log.info(f"project with id {project_id} not found")
@@ -101,7 +99,7 @@ class projectService:
 
     async def update(self, project_id: str, data: UpdateProjectSchema, thumbnailImage: UploadFile = None, images: List[UploadFile] = None):
         try:
-            existingProject = await self.db.find_one({"_id": project_id})
+            existingProject = await self.collection.find_one({"_id": project_id})
 
             if existingProject is None:
                 log.info(f"project with id {project_id} not found")
@@ -148,7 +146,7 @@ class projectService:
                     imagesUrls.append(imageRes["url"])
                 updateData["images"] = imagesUrls
 
-            await self.db.update_one({"_id": project_id}, {"$set": updateData})
+            await self.collection.update_one({"_id": project_id}, {"$set": updateData})
             log.info(f"project {project_id} updated")
             return response(code=200, message="Project updated successfully")
 
@@ -161,7 +159,7 @@ class projectService:
 
     async def delete(self, project_id: str):
         try:
-            existingProject = await self.db.find_one({"_id": project_id})
+            existingProject = await self.collection.find_one({"_id": project_id})
 
             if existingProject is None:
                 log.info(f"project with id {project_id} not found")
@@ -170,7 +168,7 @@ class projectService:
                     detail="Project not found"
                 )
 
-            await self.db.delete_one({"_id": project_id})
+            await self.collection.delete_one({"_id": project_id})
             log.info(f"project {project_id} deleted")
             return response(code=200, message="Project deleted successfully")
 

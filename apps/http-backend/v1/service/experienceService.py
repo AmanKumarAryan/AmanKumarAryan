@@ -1,61 +1,53 @@
 from datetime import datetime
-from v1.model import blogModel
+from v1.model import ExperienceModel
 from v1.config import getDB
 from v1.util import log, response
 from fastapi import HTTPException, UploadFile
-from v1.schema import CreateBlogSchema
-import re
+from v1.schema import createExperienceSchema, updateExperienceSchema
 from v1.config import imagekit
 from v1.util import getCurrentDateTime
 
 class experienceService:
+    @property
+    async def collection(self):
+        return getDB()["ExperienceModel"]
 
-    def __init__(self):
-        self.db = getDB()["BlogModel"]
-
-    async def create(self, data: CreateBlogSchema,thumbnailImage: UploadFile):
+    async def create(self, data: createExperienceSchema,companyLogo: UploadFile):
         try:
-            name = data.name.lower()
-            name = re.sub(r"[^\w\s-]", "", name)
-            words = name.split()
+            existingExperience = await self.collection.find_one({"name":data.company})
 
-            slug = "-".join(words[:4])
-
-            existingBlog = await self.db.find_one({"name":slug})
-
-            if existingBlog is not None:
-                log.info("blog which slug {slug} already exist")
+            if existingExperience is not None:
+                log.info("company experience {data.company} already exist")
                 return HTTPException(
                     status_code=409,
-                    detail="blog already exist, please use a different name"
+                    detail="Experience already exist, please use a different name"
                 )
             
             # upload the file - 
-            file_bytes = await thumbnailImage.read()
+            file_bytes = await companyLogo.read()
             imageResponse = imagekit.upload_file(
                             file=file_bytes,
-                            file_name=file.filename,
+                            file_name=companyLogo.filename,
                             options={
-                                "folder": "/blogs"
+                                "folder": "/company"
                             }
                         )
 
-            newBlog = blogModel(
-                name=data.name,
+            newExperience = ExperienceModel(
                 description=data.description,
-                thumbnailImage=imageResponse["url"] if imageResponse["url"] else None,
-                slug=slug,
-                content=data.content,
-                category=data.category,
-                tags=data.tags,
-                readTime=data.readTime,
-                featured=data.featured,
-                isActive=data.isActive,
+                company=data.company,
+                position=data.position,
+                employmentType=data.employmentType,
+                location=data.location,
+                startDate=data.startDate,
+                endDate=data.endDate,
+                currentlyWorking=data.currentlyWorking,
+                companyLogo=imageResponse["url"] if imageResponse["url"] else None,
             )
 
-            await self.db.create_one(newBlog.dict())
-            log.info("new blog create")
-            return response(code=201, message="Blog added successfull")
+            await self.collection.create_one(newExperience.dict())
+            log.info("new experience create")
+            return response(code=201, message="experience added successfull")
 
         except Exception as e:
             log.error(f"something went wrong = {e}")
@@ -66,9 +58,9 @@ class experienceService:
 
     async def getAll(self):
         try:
-            blogs = await self.db.find_all({})
-            log.info("fetched all blogs")
-            return response(code=200, message="Blogs fetched successfully", data=blogs)
+            experiences = await self.collection.find_all({})
+            log.info("fetched all experiences")
+            return response(code=200, message="Experiences fetched successfully", data=experiences)
 
         except Exception as e:
             log.error(f"something went wrong = {e}")
@@ -77,19 +69,19 @@ class experienceService:
                 detail="Something went wrong, please try again"
             )
         
-    async def getOne(self, blog_id: str):
+    async def getOne(self, experience_id: str):
         try:
-            blog = await self.db.find_one({"_id": blog_id})
+            experience = await self.collection.find_one({"_id": experience_id})
 
-            if blog is None:
-                log.info(f"blog with id {blog_id} not found")
+            if experience is None:
+                log.info(f"experience with id {experience_id} not found")
                 return HTTPException(
                     status_code=404,
-                    detail="Blog not found"
+                    detail="Experience not found"
                 )
 
-            log.info(f"fetched blog {blog_id}")
-            return response(code=200, message="Blog fetched successfully", data=blog)
+            log.info(f"fetched experience {experience_id}")
+            return response(code=200, message="Experience fetched successfully", data=experience)
 
         except Exception as e:
             log.error(f"something went wrong = {e}")
@@ -98,43 +90,43 @@ class experienceService:
                 detail="Something went wrong, please try again"
             )
         
-    async def update(self, blog_id: str, data: CreateBlogSchema, thumbnailImage: UploadFile = None):
+    async def update(self, experience_id: str, data: updateExperienceSchema, companyLogo: UploadFile = None):
         try:
-            existingBlog = await self.db.find_one({"_id": blog_id})
+            existingExperience = await self.collection.find_one({"_id": experience_id})
 
-            if existingBlog is None:
-                log.info(f"blog with id {blog_id} not found")
+            if existingExperience is None:
+                log.info(f"experience with id {experience_id} not found")
                 return HTTPException(
                     status_code=404,
-                    detail="Blog not found"
+                    detail="Experience not found"
                 )
 
             updateData = {
-                "name": data.name,
                 "description": data.description,
-                "content": data.content,
-                "category": data.category,
-                "tags": data.tags,
-                "readTime": data.readTime,
-                "featured": data.featured,
-                "isActive": data.isActive,
-                "updated_at": getCurrentDateTime
+                "company": data.company,
+                "position": data.position,
+                "employmentType": data.employmentType,
+                "location": data.location,
+                "startDate": data.startDate,
+                "endDate": data.endDate,
+                "currentlyWorking": data.currentlyWorking,
+                "updated_at": getCurrentDateTime()
             }
 
-            if thumbnailImage is not None:
-                file_bytes = await thumbnailImage.read()
+            if companyLogo is not None:
+                file_bytes = await companyLogo.read()
                 imageResponse = imagekit.upload_file(
                     file=file_bytes,
-                    file_name=thumbnailImage.filename,
+                    file_name=companyLogo.filename,
                     options={
-                        "folder": "/blogs"
+                        "folder": "/company"
                     }
                 )
-                updateData["thumbnailImage"] = imageResponse["url"] if imageResponse["url"] else None
+                updateData["companyLogo"] = imageResponse["url"] if imageResponse["url"] else None
 
-            await self.db.update_one({"_id": blog_id}, {"$set": updateData})
-            log.info(f"blog {blog_id} updated")
-            return response(code=200, message="Blog updated successfully")
+            await self.collection.update_one({"_id": experience_id}, {"$set": updateData})
+            log.info(f"experience {experience_id} updated")
+            return response(code=200, message="Experience updated successfully")
 
         except Exception as e:
             log.error(f"something went wrong = {e}")
@@ -143,20 +135,20 @@ class experienceService:
                 detail="Something went wrong, please try again"
             )
         
-    async def delete(self, blog_id: str):
+    async def delete(self, experience_id: str):
         try:
-            existingBlog = await self.db.find_one({"_id": blog_id})
+            existingExperience = await self.collection.find_one({"_id": experience_id})
 
-            if existingBlog is None:
-                log.info(f"blog with id {blog_id} not found")
+            if existingExperience is None:
+                log.info(f"experience with id {experience_id} not found")
                 return HTTPException(
                     status_code=404,
-                    detail="Blog not found"
+                    detail="Experience not found"
                 )
 
-            await self.db.delete_one({"_id": blog_id})
-            log.info(f"blog {blog_id} deleted")
-            return response(code=200, message="Blog deleted successfully")
+            await self.collection.delete_one({"_id": experience_id})
+            log.info(f"experience {experience_id} deleted")
+            return response(code=200, message="Experience deleted successfully")
 
         except Exception as e:
             log.error(f"something went wrong = {e}")
