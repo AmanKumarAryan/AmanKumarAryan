@@ -1,28 +1,36 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, UploadFile, File
+from v1.service import experienceService
+from v1.schema import createExperienceSchema, updateExperienceSchema
+from v1.dependencies import verifyUserDependency
 
 router = APIRouter(prefix="/experience", tags=["experience"])
 
 
 @router.get("/")
 async def get_all_experiences():
-    return {"message": "Get all experiences"}
+    return await experienceService.getAll()
 
 
 @router.get("/{experience_id}")
 async def get_experience(experience_id: str):
-    return {"message": f"Get experience {experience_id}"}
+    return await experienceService.getOne(experience_id)
 
 
 @router.post("/")
-async def create_experience():
-    return {"message": "Create experience"}
+async def create_experience(data: createExperienceSchema = Depends(createExperienceSchema.as_form),
+                             companyLogo: UploadFile = File(...),user = Depends(verifyUserDependency)
+                             ):
+    return await experienceService.create(data, companyLogo)
 
 
 @router.put("/{experience_id}")
-async def update_experience(experience_id: str):
-    return {"message": f"Update experience {experience_id}"}
+async def update_experience(experience_id: str,
+                             data: updateExperienceSchema = Depends(updateExperienceSchema.as_form),
+                             companyLogo: UploadFile = File(None), user = Depends(verifyUserDependency)
+                             ):
+    return await experienceService.update(experience_id, data, companyLogo)
 
 
 @router.delete("/{experience_id}")
-async def delete_experience(experience_id: str):
-    return {"message": f"Delete experience {experience_id}"}
+async def delete_experience(experience_id: str, user = Depends(verifyUserDependency)):
+    return await experienceService.delete(experience_id)
