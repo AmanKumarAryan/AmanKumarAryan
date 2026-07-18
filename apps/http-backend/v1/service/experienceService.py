@@ -25,7 +25,7 @@ class experienceService:
             
             # upload the file - 
             file_bytes = await companyLogo.read()
-            imageResponse = imagekit.upload_file(
+            imageResponse = imagekit.uploads.upload(
                             file=file_bytes,
                             file_name=companyLogo.filename,
                             options={
@@ -115,7 +115,7 @@ class experienceService:
 
             if companyLogo is not None:
                 file_bytes = await companyLogo.read()
-                imageResponse = imagekit.upload_file(
+                imageResponse = imagekit.uploads.upload(
                     file=file_bytes,
                     file_name=companyLogo.filename,
                     options={

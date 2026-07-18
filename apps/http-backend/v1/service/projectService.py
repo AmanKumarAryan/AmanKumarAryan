@@ -16,7 +16,7 @@ class projectService:
         try:
             # upload the file - 
             file_bytes = await thumbnailImage.read()
-            imageResponse = imagekit.upload_file(
+            imageResponse = imagekit.uploads.upload(
                             file=file_bytes,
                             file_name=thumbnailImage.filename,
                             options={
@@ -28,7 +28,7 @@ class projectService:
             if len(images) > 0:
                 for image in images:
                     file_bytes = await image.read()
-                    imageRes = imagekit.upload_file(
+                    imageRes = imagekit.uploads.upload(
                                 file=file_bytes,
                                 file_name=thumbnailImage.filename,
                                 options={
@@ -123,7 +123,7 @@ class projectService:
 
             if thumbnailImage is not None:
                 file_bytes = await thumbnailImage.read()
-                imageResponse = imagekit.upload_file(
+                imageResponse = imagekit.uploads.upload(
                     file=file_bytes,
                     file_name=thumbnailImage.filename,
                     options={
@@ -136,7 +136,7 @@ class projectService:
                 imagesUrls = []
                 for image in images:
                     file_bytes = await image.read()
-                    imageRes = imagekit.upload_file(
+                    imageRes = imagekit.uploads.upload(
                         file=file_bytes,
                         file_name=image.filename,
                         options={

@@ -32,7 +32,7 @@ class blogService:
             
             # upload the file - 
             file_bytes = await thumbnailImage.read()
-            imageResponse = imagekit.upload_file(
+            imageResponse = imagekit.uploads.upload(
                             file=file_bytes,
                             file_name=thumbnailImage.filename,
                             options={
@@ -123,7 +123,7 @@ class blogService:
 
             if thumbnailImage is not None:
                 file_bytes = await thumbnailImage.read()
-                imageResponse = imagekit.upload_file(
+                imageResponse = imagekit.uploads.upload(
                     file=file_bytes,
                     file_name=thumbnailImage.filename,
                     options={
