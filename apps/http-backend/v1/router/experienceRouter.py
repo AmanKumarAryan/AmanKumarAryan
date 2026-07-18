@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, UploadFile, File
 from v1.service import experienceService
 from v1.schema import createExperienceSchema, updateExperienceSchema
+from v1.dependencies import verifyUserDependency
 
 router = APIRouter(prefix="/experience", tags=["experience"])
 
@@ -17,7 +18,7 @@ async def get_experience(experience_id: str):
 
 @router.post("/")
 async def create_experience(data: createExperienceSchema = Depends(createExperienceSchema.as_form),
-                             companyLogo: UploadFile = File(...)
+                             companyLogo: UploadFile = File(...),user = Depends(verifyUserDependency)
                              ):
     return await experienceService.create(data, companyLogo)
 
@@ -25,11 +26,11 @@ async def create_experience(data: createExperienceSchema = Depends(createExperie
 @router.put("/{experience_id}")
 async def update_experience(experience_id: str,
                              data: updateExperienceSchema = Depends(updateExperienceSchema.as_form),
-                             companyLogo: UploadFile = File(None)
+                             companyLogo: UploadFile = File(None), user = Depends(verifyUserDependency)
                              ):
     return await experienceService.update(experience_id, data, companyLogo)
 
 
 @router.delete("/{experience_id}")
-async def delete_experience(experience_id: str):
+async def delete_experience(experience_id: str, user = Depends(verifyUserDependency)):
     return await experienceService.delete(experience_id)

@@ -3,6 +3,7 @@ from v1.config import connectDB
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from v1.router import blogRouter, experienceRouter, projectRouter
+from v1.config.firebaseService import *
 
 app = FastAPI()
 
