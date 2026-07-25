@@ -1,6 +1,6 @@
 'use client'
 
-import { About, Blogs, Footer, Intro, Projects, Technologies } from '@/src/@components';
+import { About, Blogs, Footer, Intro, Projects, Technologies, Scrolleffect} from '@/src/@components';
 import { Hero } from '@/src/@components/heroSection';
 import { auth } from '@/src/@lib/firebase'
 import { AnimatePresence } from 'motion/react';
@@ -16,9 +16,10 @@ export default function Home() {
 
   return (
     <div className="relative" >
-      <AnimatePresence>{!done && <Intro key="intro" onDone={() => setDone(true)} />}</AnimatePresence>
-      <Hero />
+      {/* <AnimatePresence>{!done && <Intro key="intro" onDone={() => setDone(true)} />}</AnimatePresence> */}
+      {/* <Hero /> */}
       <About />
+      <Scrolleffect/>
       <Blogs/>
       <Technologies/>
       <Projects/>
