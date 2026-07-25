@@ -19,7 +19,7 @@ export default function Home() {
       {/* <AnimatePresence>{!done && <Intro key="intro" onDone={() => setDone(true)} />}</AnimatePresence> */}
       {/* <Hero /> */}
       <About />
-      <Scrolleffect/>
+      {/* <Scrolleffect/> */}
       <Blogs/>
       <Technologies/>
       <Projects/>
