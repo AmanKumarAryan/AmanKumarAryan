@@ -55,30 +55,18 @@ export function About() {
                     {...fadeUp}
                     className="lg:mx-auto lg:sticky lg:top-28"
                 >
-                    <div className="relative max-w-[280px] mx-auto lg:mx-0">
-                        {/* Decorative accent blob */}
-                        <div
-                            aria-hidden
-                            className="absolute -inset-4 md:-inset-5 -z-10"
-                            style={{
-                                background: "var(--accent)",
-                                borderRadius: "48% 52% 55% 45% / 52% 48% 52% 48%",
-                                transform: "rotate(-6deg)",
-                            }}
-                        />
-                        <div className="relative overflow-hidden rounded-[2rem] aspect-[4/5] bg-muted ring-1 ring-black/5">
+                    <div className="relative mx-auto lg:mx-0">
+                        <div className="relative overflow-hidden">
                             <img
-                                src={'public/assets/portrait.jpg'}
+                                src={'./assets/profilePngFlipped.png'}
                                 alt="Kartik Sharma"
-                                className="w-full h-full object-cover"
-                                width={1024}
-                                height={1280}
+                                className="w-100 h-auto object-cover"
                             />
                         </div>
                     </div>
 
                     {/* Contact */}
-                    <motion.div {...fadeUp} className="mt-10">
+                    <motion.div {...fadeUp} className="mt-10 px-10">
                         <SectionLabel>Say hello</SectionLabel>
                         <div className="mt-5 space-y-4">
                             <a
@@ -86,24 +74,24 @@ export function About() {
                                 className="flex items-center gap-3 text-sm md:text-base text-foreground hover:text-accent transition-colors"
                             >
                                 <span className="flex items-center justify-center w-9 h-9 rounded-full bg-accent text-white shrink-0">
-                                    <Mail className="w-4 h-4" strokeWidth={2.5} />
+                                    <img className="h-auto w-5" src={'./assets/social/gmailLogowhite.png'} alt="Kartik Sharma" />
                                 </span>
                                 Contactkartikforwork@gmail.com
                             </a>
                             <a
-                                href="tel:8810315664"
+                                href="https://www.linkedin.com/in/kartik-sh17/" target="_blank"
                                 className="flex items-center gap-3 text-sm md:text-base text-foreground hover:text-accent transition-colors"
                             >
                                 <span className="flex items-center justify-center w-9 h-9 rounded-full bg-accent text-white shrink-0">
-                                    <Phone className="w-4 h-4" strokeWidth={2.5} />
+                                    <img className="h-auto w-5" src={'./assets/social/linkedin.png'} alt="Kartik Sharma" />
                                 </span>
-                                8810315664
+                                Linkedin
                             </a>
                         </div>
                     </motion.div>
 
                     {/* Languages */}
-                    <motion.div {...fadeUp} className="mt-10">
+                    <motion.div {...fadeUp} className="mt-10 px-10">
                         <SectionLabel>Words I speak</SectionLabel>
                         <div className="mt-5 max-w-xs space-y-3">
                             {languages.map((l) => (
@@ -112,7 +100,7 @@ export function About() {
                                     className="flex items-baseline justify-between border-b border-accent/15 pb-2.5"
                                 >
                                     <span className="text-sm md:text-base text-foreground">{l.name}</span>
-                                    <span className="text-sm md:text-base font-bold text-accent">{l.level}</span>
+                                    <span className="text-sm md:text-base font-anton  text-accent">{l.level}</span>
                                 </div>
                             ))}
                         </div>
@@ -122,7 +110,7 @@ export function About() {
                 {/* Right — content */}
                 <div className="flex flex-col">
                     <motion.div {...fadeUp}>
-                        <Eyebrow className="font-anton tracking-wide">About me</Eyebrow>
+                        <Eyebrow>About me</Eyebrow>
                     </motion.div>
                     <motion.h2
                         {...fadeUp}
@@ -146,7 +134,7 @@ export function About() {
                     <motion.div
                         {...fadeUp}
                         transition={{ ...fadeUp.transition, delay: 0.15 }}
-                        className="mt-10 h-px bg-accent/40"
+                        className="mt-10 h-0.5 bg-accent"
                     />
 
                     {/* Education */}
@@ -154,13 +142,10 @@ export function About() {
                         <SectionLabel>How I got here</SectionLabel>
                         <div className="mt-5 space-y-5">
                             {education.map((e) => (
-                                <div key={e.degree} className="grid grid-cols-[7rem_1fr] gap-4 md:gap-6">
-                                    <div className="text-xs md:text-sm text-muted-foreground font-medium pt-0.5">
-                                        {e.time}
-                                    </div>
+                                <div key={e.degree} className="">
                                     <div className="min-w-0">
                                         <div className="font-semibold text-foreground">{e.degree}</div>
-                                        <div className="text-sm text-muted-foreground">{e.school}</div>
+                                        <div className="text-sm text-muted-foreground">{e.school} {e.time}</div>
                                     </div>
                                 </div>
                             ))}
@@ -172,8 +157,8 @@ export function About() {
                         <SectionLabel>On the job</SectionLabel>
                         <div className="mt-5 space-y-7">
                             {experience.map((e) => (
-                                <div key={e.role + e.time} className="grid grid-cols-[7rem_1fr] gap-4 md:gap-6">
-                                    <div className="text-right">
+                                <div key={e.role + e.time} className="grid grid-cols-12 gap-3">
+                                    <div className="col-span-4">
                                         <div className="font-semibold text-foreground text-sm md:text-base leading-snug">
                                             {e.role}
                                         </div>
@@ -181,7 +166,7 @@ export function About() {
                                             {e.time}
                                         </div>
                                     </div>
-                                    <div className="min-w-0">
+                                    <div className="min-w-0 col-span-8">
                                         <div className="font-bold text-foreground">{e.company}</div>
                                         <div className="text-sm text-muted-foreground mt-1">{e.description}</div>
                                     </div>
