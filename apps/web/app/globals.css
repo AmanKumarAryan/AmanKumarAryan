@@ -14,6 +14,7 @@
   --color-card: var(--card);
   --font-baloo: var(--font-baloo);
   --font-anton: var(--font-anton);
+  --font-poppins: var(--font-poppins);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -63,19 +64,27 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    font-family: var(--font-poppins);
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-sans);
+    /* font-family: var(--font-sans); */
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4, h5 {
-    font-family: var(--font-display);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-poppins);
     letter-spacing: -0.02em;
   }
 }
@@ -83,14 +92,20 @@
 @utility font-hand {
   font-family: var(--font-hand);
 }
+
 @utility font-display {
   font-family: var(--font-display);
 }
 
 /* Handwriting stroke animation */
 @keyframes hand-draw {
-  from { stroke-dashoffset: 1200; }
-  to { stroke-dashoffset: 0; }
+  from {
+    stroke-dashoffset: 1200;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 
@@ -104,5 +119,4 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
