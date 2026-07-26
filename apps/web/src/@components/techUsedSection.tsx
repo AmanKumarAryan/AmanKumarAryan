@@ -89,11 +89,11 @@ function TechCell({ tech, active, onHover }: { tech: Tech; active: boolean; onHo
 function DashedGrid({ techs, hovered, onHover }: { techs: Tech[]; hovered: Tech | null; onHover: (t: Tech | null) => void }) {
     const rows = chunk(techs, COLS);
     return (
-        <div className="rounded-2xl divide-y divide-dashed divide-border/60 overflow-visible">
+        <div className="rounded-2xl divide-y divide-dashed overflow-visible">
             {rows.map((row, ri) => (
                 <div
                     key={ri}
-                    className="grid divide-x divide-dashed divide-border/60"
+                    className="grid divide-x divide-dashed"
                     style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}
                 >
                     {row.map((t) => (
@@ -318,7 +318,7 @@ export function Technologies() {
                 )}
             </AnimatePresence>
 
-            <SpotlightOverlay tech={hoveredTech} />
+            {/* <SpotlightOverlay tech={hoveredTech} /> */}
         </Section>
     );
 }
