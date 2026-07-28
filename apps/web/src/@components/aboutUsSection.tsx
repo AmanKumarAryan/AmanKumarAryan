@@ -159,7 +159,7 @@ export function About() {
                             {experience.map((e) => (
                                 <div key={e.role + e.time} className="grid grid-cols-12 gap-3">
                                     <div className="col-span-4">
-                                        <div className="font-semibold text-foreground text-sm md:text-base leading-snug">
+                                        <div className="font-semibold  text-foreground text-sm md:text-base leading-snug">
                                             {e.role}
                                         </div>
                                         <div className="text-xs md:text-sm text-muted-foreground mt-1">
@@ -167,7 +167,7 @@ export function About() {
                                         </div>
                                     </div>
                                     <div className="min-w-0 col-span-8">
-                                        <div className="font-bold text-foreground">{e.company}</div>
+                                        <div className="font-semibold text-foreground">{e.company}</div>
                                         <div className="text-sm text-muted-foreground mt-1">{e.description}</div>
                                     </div>
                                 </div>
