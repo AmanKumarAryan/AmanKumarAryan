@@ -20,9 +20,9 @@ export default function Home() {
       {/* <Hero /> */}
       <About />
       {/* <Scrolleffect/> */}
-      {/* <Blogs/> */}
       <Technologies/>
       <Projects/>
+      <Blogs/>
       <Footer/>
     </div>
   );
