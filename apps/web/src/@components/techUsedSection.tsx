@@ -270,7 +270,7 @@ export function Technologies() {
                         >
                             <motion.h2
                                 {...fadeUp}
-                                className="mt-6 font-anton text-4xl tracking-tight text-foreground"
+                                className="mt-6 font-anton text-4xl tracking-tight text-foreground``"
                             >
                                 TECHFOLIO
                             </motion.h2>
