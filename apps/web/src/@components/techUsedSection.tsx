@@ -75,7 +75,7 @@ function TechCell({ tech, active, onHover }: { tech: Tech; active: boolean; onHo
             <motion.div
                 animate={{ scale: active ? 1.08 : 1, opacity: active ? 1 : 1 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
-                className="h-50 w-30 flex items-center justify-center cursor-default"
+                className="min-h-40 w-25 flex items-center justify-center cursor-default"
             >
                 <Icon
                     className="w-10 md:h-10 transition-colors"
@@ -257,9 +257,9 @@ export function Technologies() {
                 </p>
                 <div className="border w-9/10 absolute bottom-10 left-1/2 -translate-x-1/2"></div>
             </div>
-            <Section id="technologies" className="py-32 md:py-48">
+            <Section id="technologies" className="py-10 max-h-screen">
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 py-20">
                     {/* Sidebar */}
                     <div className="lg:col-span-4 flex flex-col justify-between">
                         <motion.div {...fadeUp}><Eyebrow>Technologies</Eyebrow></motion.div>
@@ -270,9 +270,9 @@ export function Technologies() {
                         >
                             <motion.h2
                                 {...fadeUp}
-                                className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-accent"
+                                className="mt-6 font-anton text-4xl tracking-tight text-foreground"
                             >
-                                The tools I reach<br />for, every day.
+                                TECHFOLIO
                             </motion.h2>
                             <motion.p transition={{ ...fadeUp.transition, delay: 0.1 }} className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
                                 A curated stack I've refined project after project — chosen for clarity,
@@ -283,7 +283,7 @@ export function Technologies() {
                         <motion.p
                             {...fadeUp}
                             transition={{ ...fadeUp.transition, delay: 0.15 }}
-                            className="mt-10 text-sm text-muted-foreground"
+                            className="mt-10 text-muted-foreground"
                         >
                             {TECHS.length} tools · 2021 – 2026
                         </motion.p>
