@@ -1,6 +1,7 @@
 import { Eyebrow, fadeUp, Section } from "../@core";
-import { ArrowUpRight } from "lucide-react";
+import { SquareArrowOutUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import Link from "next/link";
 
 export function Projects() {
   const items = [
@@ -28,20 +29,23 @@ export function Projects() {
 
             <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
               <motion.h2 {...fadeUp} className="mt-6 font-anton text-4xl tracking-tight text-foreground">
-                PROJECTFOLIO
+                CLARIX AI
               </motion.h2>
               <motion.p transition={{ ...fadeUp.transition, delay: 0.1 }} className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
-                A curated stack I've refined project after project — chosen for clarity,
-                performance and long-term maintainability.
+                Clarix AI is a web app that helps users craft high-quality, effective prompts for popular generative AI tools like ChatGPT, Midjourney, and Stable Diffusion. Rather than users guessing at prompt phrasing through trial and error, Clarix streamlines the process — turning simple ideas into structured, optimized prompts that get better results out of the box.
               </motion.p>
             </motion.div>
             <motion.p
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: 0.15 }}
-                className="mt-10 text-muted-foreground"
-              >
-                 2021 – 2026
-              </motion.p>
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.15 }}
+              className="mt-10 text-muted-foreground cursor-pointer"
+            >
+              <Link target="_blank" className="flex gap-1 items-center" href={"https://www.clarixai.in/"}>
+              Live Link <SquareArrowOutUpRight className="h-4 w-4" />
+              </Link>
+            </motion.p>
+
+
           </div>
 
           {/* Collage grid */}
@@ -57,9 +61,9 @@ export function Projects() {
               >
                 <div className="flex justify-between items-center gap-1.5 mb-4">
                   <div className="flex gap-1">
-                  <div className="h-2 w-2 rounded-full bg-red-500/80" />
-                  <div className="h-2 w-2 rounded-full bg-yellow-500/80" />
-                  <div className="h-2 w-2 rounded-full bg-green-500/80" />
+                    <div className="h-2 w-2 rounded-full bg-red-500/80" />
+                    <div className="h-2 w-2 rounded-full bg-yellow-500/80" />
+                    <div className="h-2 w-2 rounded-full bg-green-500/80" />
                   </div>
                   <span className="ml-2 text-[10px] uppercase tracking-widest text-background">Clarix AI</span>
                 </div>
@@ -107,32 +111,24 @@ export function Projects() {
               </motion.div>
             </div>
 
-            {/* Portal Commerce — browser mockup, with Atlas Agents pill strip pinned to the bottom edge */}
+            {/* Right side second part */}
             <motion.div
               {...fadeUp}
               transition={{ ...fadeUp.transition, delay: 0.1 }}
               className="col-span-8 bg-accent rounded-xl relative overflow-hidden flex flex-col"
             >
-              <div className="flex items-center gap-1.5 px-4 py-3 border-b border-background/10">
-                <span className="h-2.5 w-2.5 rounded-full bg-background/30" />
-                <span className="h-2.5 w-2.5 rounded-full bg-background/30" />
-                <span className="h-2.5 w-2.5 rounded-full bg-background/30" />
-                <span className="ml-3 text-[10px] uppercase tracking-widest text-background/50">Portal Commerce</span>
-              </div>
-
-              <div className="flex-1 p-6 grid grid-cols-3 gap-3">
-                <div className="col-span-1 rounded-lg bg-background/10 aspect-[3/4]" />
-                <div className="col-span-1 rounded-lg bg-background/15 aspect-[3/4]" />
-                <div className="col-span-1 rounded-lg bg-background/10 aspect-[3/4]" />
-              </div>
-              <div className="px-6 pb-4 space-y-1.5">
-                <div className="h-2 w-1/3 rounded-full bg-background/20" />
-                <div className="h-2 w-1/4 rounded-full bg-background/10" />
-              </div>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="./projectGallary/clarix/clarixdemVideo-highlight.mp4" type="video/mp4" />
+              </video>
 
               {/* Atlas Agents pill strip */}
-              <div className="mt-auto px-6 py-4 border-t border-background/10 flex items-center justify-between gap-4">
-                <span className="text-[10px] uppercase tracking-widest text-background/50">Atlas Agents</span>
+              <div className="absolute bottom-0 px-6 py-4 border-t border-background/10">
                 <div className="flex flex-wrap justify-end gap-1.5">
                   {["Python", "LangGraph", "FastAPI"].map((s) => (
                     <span key={s} className="text-[11px] px-2.5 py-1 rounded-full bg-background/10 text-background/80">
