@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Section } from "../@core";
 
 // const NAV_LINKS = [
 //   { label: "RIGHT WHERE YOU LANDED", href: "#about" },
@@ -60,7 +61,7 @@ export function Navbar() {
   return (
     <>
       {/* Top bar — stays visible above the overlay; the Menu button doubles as the close control */}
-      <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 md:px-10">
+      <Section id="navbar" childClass="flex items-center justify-between py-6" className="fixed inset-x-0 top-0 z-50 ">
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -94,7 +95,7 @@ export function Navbar() {
         >
           Let&apos;s chat →
         </a>
-      </header>
+      </Section>
 
       {/* Full-screen overlay: drops down on open, retracts up on close */}
       {isMounted && (
