@@ -8,6 +8,7 @@ type Post = {
   date: string;
   tag: string;
   image: string;
+  link: string;
 };
 
 const posts: Post[] = [
@@ -17,6 +18,7 @@ const posts: Post[] = [
     date: "Jul 04, 2026",
     tag: "Design",
     image: "./blogs/blogImg1.jpeg",
+    link: "/comingsoon"
   },
   {
     title: "Shipping less, faster",
@@ -24,6 +26,7 @@ const posts: Post[] = [
     date: "Jun 22, 2026",
     tag: "Process",
     image: "./blogs/blogImg2.jpeg",
+    link: "/comingsoon"
   },
   {
     title: "On writing readable code",
@@ -31,6 +34,7 @@ const posts: Post[] = [
     date: "Jun 08, 2026",
     tag: "Code",
     image: "./blogs/blogImg3.jpeg",
+    link: "/comingsoon"
   },
 ];
 
@@ -59,7 +63,7 @@ const imgVariants = {
 function BlogCard({ post, className = "" }: { post: Post; className?: string }) {
   return (
     <motion.a
-      href="#"
+      href={post.link}
       initial="rest"
       whileHover="hover"
       animate="rest"
