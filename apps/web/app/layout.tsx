@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Baloo_2, Anton, Poppins } from "next/font/google";
 import "./globals.css";
+import SmoothScrollProvider from "@/src/@lib/smoothScrollProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,7 +43,8 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${poppins.variable} ${anton.variable} ${geistMono.variable} ${baloo.variable} h-full antialiased`}
     >
-    <body className="min-h-full flex flex-col">{children}</body>
+    <body className="min-h-full flex flex-col">
+      <SmoothScrollProvider>{children}</SmoothScrollProvider></body>
     </html >
   );
 }
