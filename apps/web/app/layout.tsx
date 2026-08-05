@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Baloo_2, Anton, Poppins } from "next/font/google";
+import { Geist, Geist_Mono, Baloo_2, Anton, Poppins, Give_You_Glory } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/src/@lib/smoothScrollProvider";
 
@@ -16,11 +16,16 @@ const baloo = Baloo_2({
   variable: "--font-baloo",
   subsets: ["latin"],
 });
+const scriptFont = Give_You_Glory({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-script",
+});
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-poppins", 
+  variable: "--font-poppins",
 });
 const anton = Anton({
   variable: "--font-anton",
@@ -41,10 +46,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${poppins.variable} ${anton.variable} ${geistMono.variable} ${baloo.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${scriptFont.variable} ${poppins.variable} ${anton.variable} ${geistMono.variable} ${baloo.variable} h-full antialiased`}
     >
-    <body className="min-h-full flex flex-col">
-      <SmoothScrollProvider>{children}</SmoothScrollProvider></body>
+      <body className="min-h-full flex flex-col">
+        <SmoothScrollProvider>{children}</SmoothScrollProvider></body>
     </html >
   );
 }
