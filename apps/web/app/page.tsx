@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="relative" >
-      <AnimatePresence>{!done && <Intro key="intro" onDone={() => setDone(true)} />}</AnimatePresence>
+      {/* <AnimatePresence>{!done && <Intro key="intro" onDone={() => setDone(true)} />}</AnimatePresence> */}
       <Navbar/>
       {/* <Hero /> */}
       <About />
