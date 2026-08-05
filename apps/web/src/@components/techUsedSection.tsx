@@ -20,35 +20,31 @@ type Tech = {
     desc: string;
     projects: string[];
     years: string;
-    Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    iconUrl: string;
     color: string;
     demoNote?: string; // placeholder — replace with real project detail later
 };
 
 const TECHS: Tech[] = [
-    { name: "TypeScript", desc: "Typed superset of JavaScript.", projects: ["humanOS", "NanoFactz"], years: "4y", Icon: SiTypescript, color: "#3178C6" },
-    { name: "React", desc: "UI library for composable interfaces.", projects: ["humanOS", "Portfolio"], years: "4y", Icon: SiReact, color: "#61DAFB" },
-    { name: "Next.js", desc: "Fullstack React framework.", projects: ["Marketplace", "Blog"], years: "3y", Icon: SiNextdotjs, color: "#000000" },
-    { name: "Node.js", desc: "Async JS runtime.", projects: ["APIs", "CLIs"], years: "4y", Icon: SiNodedotjs, color: "#5FA04E" },
-    { name: "Express", desc: "Minimal Node HTTP framework.", projects: ["REST APIs"], years: "3y", Icon: SiExpress, color: "#000000" },
-    { name: "Python", desc: "General purpose language.", projects: ["ML tools"], years: "3y", Icon: SiPython, color: "#3776AB" },
-    { name: "FastAPI", desc: "Modern Python APIs.", projects: ["AI backends"], years: "2y", Icon: SiFastapi, color: "#009688" },
-    { name: "PostgreSQL", desc: "Relational database.", projects: ["Most projects"], years: "3y", Icon: SiPostgresql, color: "#4169E1" },
-    { name: "MongoDB", desc: "Document database.", projects: ["Realtime apps"], years: "3y", Icon: SiMongodb, color: "#47A248" },
-    { name: "Redis", desc: "In-memory data store.", projects: ["Caching"], years: "2y", Icon: SiRedis, color: "#DC382D" },
-    { name: "Prisma", desc: "Typesafe ORM.", projects: ["SaaS apps"], years: "2y", Icon: SiPrisma, color: "#2D3748" },
-    { name: "Docker", desc: "Containerised runtimes.", projects: ["Deployments"], years: "3y", Icon: SiDocker, color: "#2496ED" },
-    { name: "Git", desc: "Version control.", projects: ["Everything"], years: "5y", Icon: SiGit, color: "#F05032" },
-    { name: "GitHub", desc: "Collaboration platform.", projects: ["OSS"], years: "5y", Icon: SiGithub, color: "#181717" },
-    { name: "Tailwind CSS", desc: "Utility-first CSS.", projects: ["Portfolio", "humanOS"], years: "3y", Icon: SiTailwindcss, color: "#06B6D4" },
-    { name: "Redux", desc: "Predictable state.", projects: ["Dashboards"], years: "3y", Icon: SiRedux, color: "#764ABC" },
-    { name: "LangChain", desc: "LLM app framework.", projects: ["AI agents"], years: "1y", Icon: SiLangchain, color: "#1C3C3C" },
-    { name: "LangGraph", desc: "Agentic orchestration.", projects: ["Multi-agent"], years: "1y", Icon: TbBrandFramerMotion, color: "#5863ED" },
-    { name: "Firebase", desc: "Backend as a service.", projects: ["MVPs"], years: "3y", Icon: SiFirebase, color: "#DD2C00" },
-    { name: "Linux", desc: "Daily driver.", projects: ["Everything"], years: "5y", Icon: SiLinux, color: "#000000" },
-    { name: "HTML", desc: "The web's structure.", projects: ["All"], years: "6y", Icon: SiHtml5, color: "#E34F26" },
-    { name: "CSS", desc: "The web's style.", projects: ["All"], years: "6y", Icon: SiCss, color: "#1572B6" },
-    { name: "JavaScript", desc: "Language of the web.", projects: ["All"], years: "5y", Icon: SiJavascript, color: "#F7DF1E" },
+    { name: "FastAPI", desc: "Modern Python APIs.", projects: ["AI backends"], years: "2y", iconUrl: "./techIcons/fastapi_logo_icon_248575.png", color: "#009688" },
+    { name: "TypeScript", desc: "Typed superset of JavaScript.", projects: ["humanOS", "NanoFactz"], years: "4y", iconUrl: "./techIcons/icons8-typescript-100.png", color: "#3178C6" },
+    { name: "React", desc: "UI library for composable interfaces.", projects: ["humanOS", "Portfolio"], years: "4y", iconUrl: "./techIcons/icons8-react-96.png", color: "#61DAFB" },
+    { name: "Next.js", desc: "Fullstack React framework.", projects: ["Marketplace", "Blog"], years: "3y", iconUrl: "./techIcons/icons8-nextjs-96.png", color: "#000000" },
+    { name: "Node.js", desc: "Async JS runtime.", projects: ["APIs", "CLIs"], years: "4y", iconUrl: "./techIcons/icons8-nodejs-96.png", color: "#5FA04E" },
+    { name: "Express", desc: "Minimal Node HTTP framework.", projects: ["REST APIs"], years: "3y", iconUrl: "./techIcons/icons8-express-js-64.png", color: "#000000" },
+    { name: "Python", desc: "General purpose language.", projects: ["ML tools"], years: "3y", iconUrl: "./techIcons/icons8-python-150.png", color: "#3776AB" },
+    { name: "PostgreSQL", desc: "Relational database.", projects: ["Most projects"], years: "3y", iconUrl: "./techIcons/icons8-postgresql-96.png", color: "#4169E1" },
+    { name: "MongoDB", desc: "Document database.", projects: ["Realtime apps"], years: "3y", iconUrl: "./techIcons/icons8-mongodb-144.png", color: "#47A248" },
+    { name: "Redis", desc: "In-memory data store.", projects: ["Caching"], years: "2y", iconUrl: "./techIcons/icons8-redis-100.png", color: "#DC382D" },
+    { name: "Prisma", desc: "Typesafe ORM.", projects: ["SaaS apps"], years: "2y", iconUrl: "./techIcons/icons8-prisma-orm-100.png", color: "#2D3748" },
+    { name: "Docker", desc: "Containerised runtimes.", projects: ["Deployments"], years: "3y", iconUrl: "./techIcons/icons8-docker-96.png", color: "#2496ED" },
+    { name: "Git", desc: "Version control.", projects: ["Everything"], years: "5y", iconUrl: "./techIcons/icons8-git-96.png", color: "#F05032" },
+    { name: "Firebase", desc: "Backend as a service.", projects: ["MVPs"], years: "3y", iconUrl: "./techIcons/icons8-firebase-96.png", color: "#DD2C00" },
+    { name: "Linux", desc: "Daily driver.", projects: ["Everything"], years: "5y", iconUrl: "./techIcons/icons8-linux-100.png", color: "#000000" },
+    { name: "JavaScript", desc: "Language of the web.", projects: ["All"], years: "5y", iconUrl: "./techIcons/icons8-javascript-150.png", color: "#F7DF1E" },
+    { name: "Git", desc: "Version control.", projects: ["Everything"], years: "5y", iconUrl: "./techIcons/icons8-git-150.png", color: "#F05032" },
+    { name: "AWS", desc: "Cloud infrastructure and services.", projects: ["Deployments"], years: "2y", iconUrl: "./techIcons/icons8-aws-96.png", color: "#FF9900" },
+{ name: "Azure", desc: "Cloud platform and services.", projects: ["Deployments"], years: "1y", iconUrl: "./techIcons/icons8-azure-144.png", color: "#0078D4" },
 ];
 
 const VISIBLE_COUNT = 9; // 3x3, matches the reference grid
@@ -61,7 +57,6 @@ function chunk<T>(arr: T[], size: number): T[][] {
 }
 
 function TechCell({ tech, active, onHover }: { tech: Tech; active: boolean; onHover: (t: Tech | null) => void }) {
-    const Icon = tech.Icon;
 
     return (
         <div
@@ -77,10 +72,7 @@ function TechCell({ tech, active, onHover }: { tech: Tech; active: boolean; onHo
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
                 className="min-h-40 w-25 flex items-center justify-center cursor-default"
             >
-                <Icon
-                    className="w-10 md:h-10 transition-colors"
-                    style={{ color: tech.color }}
-                />
+                <img src={tech.iconUrl} className="w-20 h-auto" alt="" />
             </motion.div>
         </div>
     );
@@ -145,7 +137,7 @@ function SpotlightOverlay({ tech }: { tech: Tech | null }) {
                         >
                             <div className="flex items-center gap-4">
                                 <div className="w-14 h-14 rounded-2xl bg-card ring-1 ring-black/5 flex items-center justify-center shrink-0">
-                                    <tech.Icon className="w-7 h-7" style={{ color: tech.color }} />
+                                    {/* <tech.Icon className="w-7 h-7" style={{ color: tech.color }} /> */}
                                 </div>
                                 <div>
                                     <div className="text-xl font-semibold tracking-tight">{tech.name}</div>
