@@ -137,7 +137,7 @@ function SpotlightOverlay({ tech }: { tech: Tech | null }) {
                         >
                             <div className="flex items-center gap-4">
                                 <div className="w-14 h-14 rounded-2xl bg-card ring-1 ring-black/5 flex items-center justify-center shrink-0">
-                                    <tech.Icon className="w-7 h-7" style={{ color: tech.color }} />
+                                    {/* <tech.Icon className="w-7 h-7" style={{ color: tech.color }} /> */}
                                 </div>
                                 <div>
                                     <div className="text-xl font-semibold tracking-tight">{tech.name}</div>
