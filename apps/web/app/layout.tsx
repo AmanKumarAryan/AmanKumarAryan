@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Baloo_2, Anton, Poppins, Give_You_Glory } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/src/@lib/smoothScrollProvider";
+import { ReduxProvider } from "@/redux/reduxProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,8 +49,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${scriptFont.variable} ${poppins.variable} ${anton.variable} ${geistMono.variable} ${baloo.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <SmoothScrollProvider>{children}</SmoothScrollProvider></body>
+      <ReduxProvider>
+        <body className="min-h-full flex flex-col">
+          <SmoothScrollProvider>{children}</SmoothScrollProvider></body>
+      </ReduxProvider>
     </html >
   );
 }
