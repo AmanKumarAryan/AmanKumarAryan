@@ -9,10 +9,10 @@ import { motion } from 'motion/react'
 
 export function Footer() {
     const links = [
-        { icon: Mail, label: "kartik@example.com", href: "mailto:kartik@example.com" },
-        { icon: Mail, label: "LinkedIn", href: "#" },
-        { icon: Mail, label: "GitHub", href: "#" },
-        { icon: Mail, label: "Twitter / X", href: "#" },
+        { icon: Mail, label: "conatactkartikforwork@gmail.com", href: "mailto:conatactkartikforwork@gmail.com" },
+        { icon: Mail, label: "LinkedIn", href: "https://www.linkedin.com/in/kartik-sh17/" },
+        { icon: Mail, label: "GitHub", href: "https://github.com/kartik-sharma17" },
+        { icon: Mail, label: "Twitter / X", href: "https://x.com/devkartik17" },
     ];
     return (
         <>
@@ -41,10 +41,9 @@ export function Footer() {
                     </div>
                     <div className="flex flex-col justify-between">
                         <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-                            I'm currently open to select freelance projects and full-time opportunities.
-                            The best way to reach me is by email — I read everything.
+                            Send me a message. I promise it won't sit in an inbox forever. Whatever it is — a project, a role, or just a hello — I'll get back to you.
                         </p>
-                        <a href="#" className="mt-10 inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full bg-black text-white text-sm font-medium hover:bg-accent transition-colors">
+                        <a download={true} href="./resume/kartik.cv.pdf" className="mt-10 inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full bg-black text-white text-sm font-medium hover:bg-accent transition-colors">
                             <Download className="w-4 h-4" /> Download resume
                         </a>
                     </div>

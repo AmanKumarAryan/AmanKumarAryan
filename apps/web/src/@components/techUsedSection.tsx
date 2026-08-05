@@ -70,15 +70,15 @@ function TechCell({ tech, active, onHover }: { tech: Tech; active: boolean; onHo
             onFocus={() => onHover(tech)}
             onBlur={() => onHover(null)}
             tabIndex={0}
-            className="relative"
+            className="flex justify-center"
         >
             <motion.div
                 animate={{ scale: active ? 1.08 : 1, opacity: active ? 1 : 1 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
-                className="aspect-square flex items-center justify-center cursor-default"
+                className="min-h-40 w-25 flex items-center justify-center cursor-default"
             >
                 <Icon
-                    className="w-8 h-8 md:w-10 md:h-10 transition-colors"
+                    className="w-10 md:h-10 transition-colors"
                     style={{ color: tech.color }}
                 />
             </motion.div>
@@ -89,11 +89,11 @@ function TechCell({ tech, active, onHover }: { tech: Tech; active: boolean; onHo
 function DashedGrid({ techs, hovered, onHover }: { techs: Tech[]; hovered: Tech | null; onHover: (t: Tech | null) => void }) {
     const rows = chunk(techs, COLS);
     return (
-        <div className="rounded-2xl divide-y divide-dashed divide-border/60 overflow-visible">
+        <div className="rounded-2xl divide-y divide-dashed overflow-visible">
             {rows.map((row, ri) => (
                 <div
                     key={ri}
-                    className="grid divide-x divide-dashed divide-border/60"
+                    className="grid divide-x divide-dashed"
                     style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}
                 >
                     {row.map((t) => (
@@ -250,75 +250,87 @@ export function Technologies() {
     const remaining = TECHS.slice(VISIBLE_COUNT);
 
     return (
-        <Section id="technologies" className="py-32 md:py-48">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-                {/* Sidebar */}
-                <div className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">
-                    <motion.div {...fadeUp}><Eyebrow>Technologies</Eyebrow></motion.div>
-                    <motion.h2
-                        {...fadeUp}
-                        className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-accent"
-                    >
-                        The tools I reach<br />for, every day.
-                    </motion.h2>
-                    <motion.p
-                        {...fadeUp}
-                        transition={{ ...fadeUp.transition, delay: 0.1 }}
-                        className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed"
-                    >
-                        A curated stack I've refined project after project — chosen for clarity,
-                        performance and long-term maintainability.
-                    </motion.p>
-                    <motion.p
-                        {...fadeUp}
-                        transition={{ ...fadeUp.transition, delay: 0.15 }}
-                        className="mt-10 text-sm text-muted-foreground"
-                    >
-                        {TECHS.length} tools · 2021 – 2026
-                    </motion.p>
-                </div>
+        <>
+            <div className="h-screen w-full m-0 bg-accent relative flex justify-center items-center">
+                <p className="font-anton text-background text-8xl text-center">
+                    TECH THAT GETS ME <br /> THROUGH THE DAY
+                </p>
+                <div className="border w-9/10 absolute bottom-10 left-1/2 -translate-x-1/2"></div>
+            </div>
+            <Section id="technologies" className="py-10 max-h-screen">
 
-                {/* Grid */}
-                <div className="lg:col-span-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-                    >
-                        <DashedGrid techs={visible} hovered={hoveredTech} onHover={setHoveredTech} />
-                    </motion.div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 py-20">
+                    {/* Sidebar */}
+                    <div className="lg:col-span-4 flex flex-col justify-between">
+                        <motion.div {...fadeUp}><Eyebrow>Technologies</Eyebrow></motion.div>
 
-                    {remaining.length > 0 && (
                         <motion.div
                             {...fadeUp}
                             transition={{ ...fadeUp.transition, delay: 0.1 }}
-                            className="mt-8 flex justify-center lg:justify-start"
                         >
-                            <button
-                                onClick={() => setDialogOpen(true)}
-                                className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium ring-1 ring-border/60 hover:bg-card transition-colors"
+                            <motion.h2
+                                {...fadeUp}
+                                className="mt-6 font-anton text-4xl tracking-tight text-foreground``"
                             >
-                                See all {TECHS.length} technologies
-                                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                            </button>
+                                TECHFOLIO
+                            </motion.h2>
+                            <motion.p transition={{ ...fadeUp.transition, delay: 0.1 }} className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+                                A curated stack I've refined project after project — chosen for clarity,
+                                performance and long-term maintainability.
+                            </motion.p>
+
                         </motion.div>
-                    )}
+                        <motion.p
+                            {...fadeUp}
+                            transition={{ ...fadeUp.transition, delay: 0.15 }}
+                            className="mt-10 text-muted-foreground"
+                        >
+                            {TECHS.length} tools · 2021 – 2026
+                        </motion.p>
+                    </div>
+
+                    {/* Grid */}
+                    <div className="lg:col-span-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
+                            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                        >
+                            <DashedGrid techs={visible} hovered={hoveredTech} onHover={setHoveredTech} />
+                        </motion.div>
+
+                        {remaining.length > 0 && (
+                            <motion.div
+                                {...fadeUp}
+                                transition={{ ...fadeUp.transition, delay: 0.1 }}
+                                className="mt-8 flex justify-center lg:justify-start"
+                            >
+                                <button
+                                    onClick={() => setDialogOpen(true)}
+                                    className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium ring-1 ring-border/60 hover:bg-card transition-colors"
+                                >
+                                    See all {TECHS.length} technologies
+                                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                </button>
+                            </motion.div>
+                        )}
+                    </div>
                 </div>
-            </div>
 
-            <AnimatePresence>
-                {dialogOpen && (
-                    <AllTechDialog
-                        techs={remaining}
-                        onClose={() => setDialogOpen(false)}
-                        hovered={hoveredTech}
-                        onHover={setHoveredTech}
-                    />
-                )}
-            </AnimatePresence>
+                <AnimatePresence>
+                    {dialogOpen && (
+                        <AllTechDialog
+                            techs={remaining}
+                            onClose={() => setDialogOpen(false)}
+                            hovered={hoveredTech}
+                            onHover={setHoveredTech}
+                        />
+                    )}
+                </AnimatePresence>
 
-            <SpotlightOverlay tech={hoveredTech} />
-        </Section>
+                {/* <SpotlightOverlay tech={hoveredTech} /> */}
+            </Section>
+        </>
     );
 }
