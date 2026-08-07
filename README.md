@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/AmanKumarAryan/portfolio/main/apps/web/public/assets/profileAnime.jpg" width="25%" align="right" style="border-radius: 50%;" />
+<img src="https://raw.githubusercontent.com/AmanKumarAryan/AmanKumarAryan/main/apps/web/public/assets/profileAnime.jpg" width="25%" align="right" style="border-radius: 50%;" />
 
 <img src="https://readme-typing-svg.demolab.com?font=Anton&weight=500&size=40&duration=3500&pause=200&color=8B5CF6&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=1100&height=120&lines=Hey+hey;I'm+Aman+Kumar+Aryan;Class+10+by+day,+deep+learning+by+night+%E2%9C%A9" width="70%" />
 
