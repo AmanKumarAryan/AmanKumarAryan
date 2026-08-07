@@ -80,6 +80,20 @@ export function Hero() {
                     </motion.div>
                 </div>
             </div>
+
+            {/* Banner */}
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                className="mt-16 md:mt-20 overflow-hidden rounded-[2rem] ring-1 ring-black/10 shadow-xl"
+            >
+                <img
+                    src="./assets/banner.png"
+                    alt="Aryan — AI/ML engineer banner"
+                    className="w-full h-auto object-cover"
+                />
+            </motion.div>
         </Section>
     );
 }
