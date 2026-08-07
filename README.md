@@ -4,7 +4,7 @@
 
 <br><br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Anton&weight=500&size=40&duration=3500&pause=200&color=8B5CF6&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=1000&height=120&lines=Hey+hey;I'm+Aman+Kumar+Aryan;Class+10+by+day,+deep+learning+by+night+%E2%9C%A9" width="70%" />
+<img src="https://readme-typing-svg.demolab.com?font=Anton&weight=500&size=40&duration=3500&pause=200&color=8B5CF6&center=true&vCenter=true&multiline=true&repeat=true&random=false&width=1000&height=120&lines=Hey+hey;I%27m+Aman+Kumar+Aryan;Class+10+by+day,+deep+learning+by+night+%E2%9C%A9" width="70%" />
 
 <br><br>
 
