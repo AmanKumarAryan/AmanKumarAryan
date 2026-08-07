@@ -42,7 +42,7 @@ export function Footer() {
                         <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
                             Send me a message. I promise it won&apos;t sit in an inbox forever. Whatever it is — a project, a role, or just a hello — I&apos;ll get back to you.
                         </p>
-                        <a download={true} href="./resume/aryan.cv.pdf" className="mt-10 inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full bg-black text-white text-sm font-medium hover:bg-accent transition-colors">
+                        <a download={true} href="/resume/aryan.cv.pdf" className="mt-10 inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full bg-black text-white text-sm font-medium hover:bg-accent transition-colors">
                             <Download className="w-4 h-4" /> Download resume
                         </a>
                     </div>
