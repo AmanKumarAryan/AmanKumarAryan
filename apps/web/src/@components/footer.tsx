@@ -9,17 +9,16 @@ import { motion } from 'motion/react'
 
 export function Footer() {
     const links = [
-        { icon: Mail, label: "conatactkartikforwork@gmail.com", href: "mailto:conatactkartikforwork@gmail.com" },
-        { icon: Mail, label: "LinkedIn", href: "https://www.linkedin.com/in/kartik-sh17/" },
-        { icon: Mail, label: "GitHub", href: "https://github.com/kartik-sharma17" },
-        { icon: Mail, label: "Twitter / X", href: "https://x.com/devkartik17" },
+        { icon: Mail, label: "amankumararyan.dev@gmail.com", href: "mailto:amankumararyan.dev@gmail.com" },
+        { icon: Mail, label: "X / Twitter", href: "https://x.com/AmanAryan__" },
+        { icon: Mail, label: "GitHub", href: "https://github.com/AmanKumarAryan" },
     ];
     return (
         <>
             <Section id="contact" className="py-28 md:py-40">
                 <motion.div {...fadeUp}><Eyebrow>Contact</Eyebrow></motion.div>
                 <motion.h2 {...fadeUp} className="mt-8 text-[13vw] md:text-[8vw] leading-[0.95] font-semibold tracking-[-0.04em]">
-                    Let's build<br />
+                    Let&apos;s build<br />
                     <span className="font-hand italic text-accent font-normal">something</span> good.
                 </motion.h2>
 
@@ -41,9 +40,9 @@ export function Footer() {
                     </div>
                     <div className="flex flex-col justify-between">
                         <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-                            Send me a message. I promise it won't sit in an inbox forever. Whatever it is — a project, a role, or just a hello — I'll get back to you.
+                            Send me a message. I promise it won&apos;t sit in an inbox forever. Whatever it is — a project, a role, or just a hello — I&apos;ll get back to you.
                         </p>
-                        <a download={true} href="./resume/kartik.cv.pdf" className="mt-10 inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full bg-black text-white text-sm font-medium hover:bg-accent transition-colors">
+                        <a download={true} href="./resume/aryan.cv.pdf" className="mt-10 inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full bg-black text-white text-sm font-medium hover:bg-accent transition-colors">
                             <Download className="w-4 h-4" /> Download resume
                         </a>
                     </div>
@@ -53,7 +52,7 @@ export function Footer() {
             <footer className="border-t border-hairline px-6 md:px-10 lg:px-16 pt-20 pb-10">
                 <div className="mx-auto max-w-7xl">
                     <div className="text-[16vw] md:text-[13vw] leading-[0.9] font-semibold tracking-[-0.04em]">
-                        Kartik<span className="text-accent">.</span>
+                        Aryan<span className="text-accent">.</span>
                     </div>
                     <div className="mt-12 grid md:grid-cols-3 gap-8 items-end">
                         <p className="text-muted-foreground max-w-sm">
@@ -62,7 +61,7 @@ export function Footer() {
                         <div className="flex gap-5 md:justify-center">
                         </div>
                         <div className="md:text-right text-sm text-muted-foreground">
-                            © {new Date().getFullYear()} Kartik Sharma <span className="text-accent">·</span> Crafted with intent
+                            © {new Date().getFullYear()} Aryan <span className="text-accent">·</span> Crafted with intent
                         </div>
                     </div>
                 </div>

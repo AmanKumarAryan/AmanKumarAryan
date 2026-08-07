@@ -31,8 +31,15 @@ export default function ScrollRevealText({
   stagger = 0.04,
   pin = false,
   scrollLength = 1500, // px of extra scroll while pinned; bump this up for a longer "stay"
+}: {
+  text: string;
+  className?: string;
+  dimOpacity?: number;
+  stagger?: number;
+  pin?: boolean;
+  scrollLength?: number;
 }) {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const el = containerRef.current;

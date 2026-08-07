@@ -1,8 +1,7 @@
 'use client'
 
-import { About, Blogs, Footer, Intro, Projects, Technologies, Scrolleffect, Navbar} from '@/src/@components';
+import { About, Blogs, Footer, GitHub, Intro, Models, Projects, Technologies, Scrolleffect, Navbar} from '@/src/@components';
 import { Hero } from '@/src/@components/heroSection';
-import { auth } from '@/src/@lib/firebase'
 import { AnimatePresence } from 'motion/react';
 import { useEffect, useState } from 'react';
 
@@ -18,11 +17,13 @@ export default function Home() {
     <div className="relative" >
       {/* <AnimatePresence>{!done && <Intro key="intro" onDone={() => setDone(true)} />}</AnimatePresence> */}
       <Navbar/>
-      {/* <Hero /> */}
+      <Hero />
       <About />
       {/* <Scrolleffect/> */}
       <Technologies/>
       <Projects/>
+      <Models/>
+      <GitHub/>
       <Blogs/>
       <Footer/>
     </div>

@@ -32,8 +32,13 @@ export default function JourneyHero({
   pin = true,
   scrollLength = 1800, // increase for a longer "stay" before it lets go
   dimOpacity = 0.12,
+}: {
+  videoSrc?: string;
+  pin?: boolean;
+  scrollLength?: number;
+  dimOpacity?: number;
 }) {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -64,7 +69,7 @@ export default function JourneyHero({
     return () => ctx.revert();
   }, [dimOpacity, pin, scrollLength]);
 
-  const renderWord = (word, i) => (
+  const renderWord = (word: { text: string; style: string }, i: number) => (
     <span
       key={i}
       className="jh-word"

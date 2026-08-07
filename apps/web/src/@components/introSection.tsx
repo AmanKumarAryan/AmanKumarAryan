@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion } from 'motion/react'
 
-const NAME = "Kartik Sharma";
+const NAME = "Aryan";
 
 export function Intro({ onDone }: { onDone: () => void }) {
     const [typed, setTyped] = useState("");
