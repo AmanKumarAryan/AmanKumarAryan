@@ -1,127 +1,84 @@
 <div align="center">
 
-# Aman Kumar Aryan — Portfolio
+<img src="https://raw.githubusercontent.com/AmanKumarAryan/portfolio/main/apps/web/public/assets/profileAnime.jpg" width="25%" align="right" style="border-radius: 50%;" />
 
-**AI/ML engineer in the making · Building intelligent systems that learn**
+<img src="https://readme-typing-svg.demolab.com?font=Anton&weight=500&size=40&duration=3500&pause=200&color=8B5CF6&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=1100&height=120&lines=Hey+hey;I'm+Aman+Kumar+Aryan;Class+10+by+day,+deep+learning+by+night+%E2%9C%A9" width="70%" />
 
-A self-taught AI/ML engineer's portfolio — a single-page site that pulls **live data from real platforms** (GitHub, Hugging Face, LeetCode) instead of static screenshots.
+<br><br>
 
-[Live Demo](https://github.com/AmanKumarAryan/portfolio) · [X / Twitter](https://x.com/AmanAryan__) · [GitHub](https://github.com/AmanKumarAryan)
+<pre>
+    🎯 Target: AI Engineering seat @ NUS Singapore (2029–2030 intake)
+    💼 Self-taught AI/ML engineer — building my way there
+    🧠 Python → PyTorch → Transformers → LLM Agents → Production
+    📍 Bihar, India
+    🎮 Anime • Tech • Building in public • Code
+    🐾 Deku (the fine-tuned one) is my emotional support model
+</pre>
+
+<br>
+
+[![](https://img.shields.io/badge/X_%28Twitter%29-black)](https://x.com/AmanAryan__)
+[![](https://img.shields.io/badge/GitHub-white)](https://github.com/AmanKumarAryan)
+[![](https://img.shields.io/badge/LeetCode-FFA116)](https://leetcode.com/u/AmanKumarAryan/)
+[![](https://img.shields.io/badge/Hugging_Face-FFD21E)](https://huggingface.co/AmanKumarAryan)
+[![](https://img.shields.io/badge/Deep_ML-6b5b95)](https://www.deep-ml.com/profile/6Yx8DMFCBKPvKDVYoWIFuyj33103)
+
+<br>
 
 </div>
 
 ---
 
-## ✨ Highlights
+## Who am I?
 
-- **Live data, not screenshots** — contribution graphs, Hugging Face models/datasets, and LeetCode stats are fetched from the real accounts at request time
-- **3D flip card** — the About portrait flips to a "proof card" with a name, tagline, and tech chain
-- **Full-screen animated menu** — Anton display type, staggered reveals, smooth Lenis scrolling
-- **AI/ML-first stack section** — a curated list of the tools actually shipped with (no fluff)
+A **self-taught AI/ML engineer in the making** from Bihar, India. I'm a Class 10 student with a quiet obsession for intelligent systems — I learn by **building real things**, not demos.
 
-## 🧱 Built With
+My days go from school math to deep learning. My nights are for training models, fine-tuning LLMs, and shipping agents. This isn't a hobby — it's a plan.
 
-| Layer | Tech |
+## 🎯 My goal & target
+
+**AI Engineering at NUS Singapore (2029–2030 intake).**
+
+Every repo, every model, every contribution is a step toward that seat. I don't post screenshots of other people's projects — everything on my profile is live, real, and measured:
+
+- 📈 **GitHub** — my actual contribution history, updated live
+- 🤗 **Hugging Face** — models & datasets I actually train and publish
+- 🧮 **LeetCode / Deep-ML** — the fundamentals grind, in public
+
+> *"A quiet obsession with intelligent systems."* — that's the whole thing.
+
+## 🛣️ Where I'm headed
+
+| Milestone | Status |
 | --- | --- |
-| Framework | Next.js 16 (App Router) · React 19 · TypeScript |
-| Styling | Tailwind CSS v4 · Motion (Framer Motion) |
-| Data | RTK Query · Lenis smooth scroll |
-| Platform | Vercel |
+| Python fundamentals → Deep Learning | ✅ Done |
+| PyTorch — CNNs, transfer learning, fine-tuning | ✅ Done |
+| LLM stack — LangChain, LangGraph, FastAPI agents | 🔄 In progress |
+| Real deployed AI products | 🔄 In progress |
+| NUS AI Engineering — Class of 2029 | ⏳ Locked in |
 
-## 📁 Project Structure
+## 🧠 The stack that gets me there
 
-```
-apps/web/
-├── app/
-│   ├── page.tsx              # Home page — all sections composed here
-│   ├── layout.tsx            # Fonts (Geist, Baloo 2, Anton, Give You Glory), providers
-│   └── api/                  # Server routes feeding live data
-│       ├── github/contributions/   # Scrapes GitHub's contribution calendar
-│       ├── huggingface/            # HF models + datasets for the account
-│       └── leetcode/               # LeetCode profile stats
-├── public/
-│   ├── assets/               # Images, social icons, tech icons
-│   └── techIcons/
-├── redux/                    # RTK Query setup
-└── src/
-    ├── @components/          # Section components (Hero, About, Technologies, …)
-    ├── @core/                # Section wrapper, fadeUp animation
-    └── @lib/                 # GitHub data helpers
-```
+**Python · PyTorch · Transformers · NumPy · Pandas · Scikit-learn · OpenCV · LangChain · LangGraph · FastAPI · ChromaDB · MongoDB · Docker · AWS · Weights & Biases · Hugging Face · Git**
 
-## 🚀 Getting Started
+*Only what I actually ship with. No fluff.*
 
-```bash
-# 1. Clone
-git clone https://github.com/AmanKumarAryan/portfolio.git
-cd portfolio/apps/web
+## 🌱 Off the clock
 
-# 2. Install
-npm install
+Anime, content creation, open-source tech, entrepreneurship, finance concepts — and dreaming in gradient descent.
 
-# 3. Run
-npm run dev
-```
+## 📬 Reach out
 
-Open [http://localhost:3000](http://localhost:3000).
-
-### Production build
-
-```bash
-npm run build
-npm run start
-```
-
-## 🔧 Configuration
-
-All external profiles are hardcoded in one place:
-
-| What | Where |
-| --- | --- |
-| GitHub username | `src/@lib/github.ts` |
-| Hugging Face author | `app/api/huggingface/route.ts` |
-| LeetCode profile | `src/@components/grindCards.tsx` |
-| Social links | `src/@components/navbar.tsx`, `footer.tsx` |
-
-No environment variables are required — everything talks to public APIs.
-
-## ☁️ Deploy on Vercel
-
-1. Import the repo at [vercel.com/new](https://vercel.com/new)
-2. Set **Root Directory** to `apps/web` (monorepo layout)
-3. Deploy — no env vars needed
-
-The `vercel.json` at the repo root pins the framework preset to Next.js.
-
-## 📄 Sections
-
-| Section | What it does |
-| --- | --- |
-| Hero | Name, intro, portrait |
-| About | Story, flip card, education, contact, languages |
-| THE STACK | Curated AI/ML tech list with expandable modal |
-| Projects | Featured work |
-| MODELS & DATA | Live Hugging Face models + datasets |
-| THE GRIND | Live GitHub contributions + LeetCode + Deep-ML |
-| Thoughts | Blog posts |
-| Contact | Email + socials |
-
-## 🛣️ Roadmap
-
-- [ ] Resume download (CV in `public/resume/`)
-- [ ] More project case studies
-- [ ] Blog with actual articles
-
-## 📬 Contact
+I'm always up for a project, a role, or just a hello — I'll get back to you.
 
 - **Email:** [amankumararyan.dev@gmail.com](mailto:amankumararyan.dev@gmail.com)
-- **X / Twitter:** [@AmanAryan__](https://x.com/AmanAryan__)
+- **X:** [@AmanAryan__](https://x.com/AmanAryan__)
 - **GitHub:** [AmanKumarAryan](https://github.com/AmanKumarAryan)
 
 ---
 
 <div align="center">
 
-**Built with intent.** Every number on this site is pulled live — no screenshots, no fake stats.
+*Built with intent · Every number on my profile is live — no screenshots, no fake stats.* ✨
 
 </div>
