@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/AmanKumarAryan/AmanKumarAryan/main/apps/web/public/assets/profileAnime.jpg" width="20%" align="right" style="border-radius: 50%;" />
+<img src="https://raw.githubusercontent.com/AmanKumarAryan/AmanKumarAryan/main/apps/web/public/assets/profilePhoto.jpg" width="20%" align="right" style="border-radius: 50%;" />
 
 <br><br>
 

@@ -36,7 +36,7 @@ function FlipPortrait() {
                     style={{ transform: "rotateY(0deg)" }}
                 >
                     <img
-                        src="./assets/profileAnime.jpg"
+                        src="./assets/profilePhoto.jpg"
                         alt="Aryan"
                         className="w-full h-auto object-cover rounded-3xl ring-1 ring-black/10"
                     />
