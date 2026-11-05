@@ -32,15 +32,6 @@ Building toward AI Engineering @ NUS Singapore (2029–30 intake).
 
 I'd rather show a trained model with a real eval than a folder of notebooks.
 
-## Selected work
-
-| Project | What it is | Built with |
-|---|---|---|
-| **[Deku](https://huggingface.co/AmanKumarAryan/Deku)** | Fine-tuned Qwen2 model for deep-learning Q&A, trained with QLoRA. Released with its dataset, [dl-code-chatml](https://huggingface.co/datasets/AmanKumarAryan/dl-code-chatml). | PyTorch · Unsloth · HF Transformers |
-| **[AmanKumarAryan](https://github.com/AmanKumarAryan/AmanKumarAryan)** | This portfolio — flip-card intro, live GitHub/HF/LeetCode data, custom scroll and motion work. | Next.js 16 · React 19 · Tailwind v4 · Motion |
-| **[opencode-manager](https://github.com/AmanKumarAryan/opencode-manager)** | Mobile-first web interface for driving OpenCode AI agents from a phone. | TypeScript · Next.js |
-| **[spa_demo](https://github.com/AmanKumarAryan/spa_demo) · [dental_demo](https://github.com/AmanKumarAryan/dental_demo) · [caffe_demo](https://github.com/AmanKumarAryan/caffe_demo)** | Freelance demo sites — real 3D scenes, brand identity, production-grade front-end. | Next.js 16 · React Three Fiber · Motion |
-
 ## Stack
 
 ```text
